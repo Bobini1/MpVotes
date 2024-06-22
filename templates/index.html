@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<title>Głosy posłów</title>
+</head>
+<body>
+<h1>Głosy posłów</h1>
+<table>
+  <tr>
+    <th>Poseł</th>
+  </tr>
+{% for mp in mps %}
+  <tr>
+    <td><a href="mps/{{ mp["id"] }}">{{ mp["name"] }}</a></td>
+  </tr>
+{% endfor %}
+</table>
+</body>
+</html>

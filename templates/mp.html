@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<title>{{ name }} - głosy</title>
+</head>
+<body>
+<h1>{{ name }}</h1>
+<table>
+  <tr>
+    <th>Głosowanie</th>
+      <th>Głos</th>
+  </tr>
+{% for vote in votes %}
+  <tr>
+    <td>{{ vote["title"] }}</td>
+    <td>{{ vote["vote"] }}</td>
+  </tr>
+{% endfor %}
+</table>
+</body>
+</html>
