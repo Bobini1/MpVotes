@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import sqlite3
+from functools import cache
 
 app = Flask(__name__)
 
@@ -17,15 +18,15 @@ def get_mps():
     return mp_dicts
 
 
-mps = get_mps()
-
-
 @app.route('/')
+@cache
 def home():
+    mps = get_mps()
     return render_template('index.html', mps=mps)
 
 
 @app.route('/mps/<mp_id>')
+@cache
 def mp_page(mp_id):
     con = sqlite3.connect("db.db")
     cur = con.cursor()
