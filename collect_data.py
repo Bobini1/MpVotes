@@ -5,6 +5,7 @@ import requests
 con = sqlite3.connect("db.db")
 url = "https://api.sejm.gov.pl/sejm"
 
+
 def populate_db():
     db = con.cursor()
     # db.execute("SELECT timestamp FROM scans")
@@ -45,6 +46,7 @@ def populate_db():
 
             db.execute("INSERT INTO vote(mp_id, voting_id, vote) VALUES(?, ?, ?)", (mp_id, voting_id, vote_str))
     print("done")
+
 
 if __name__ == '__main__':
     populate_db()
